@@ -12,7 +12,7 @@ Here is the `README.md` file for **Manifest Me**, tailored to match the style an
   * **Goal-Aligned AI:** The chatbot (Google Gemini) creates responses based on the user's specific saved goals.
   * **Persistent Memory:** All chat history is saved to a cloud database (MongoDB Atlas) so conversations aren't lost.
   * **Weekly Reflection:** An AI-powered tool that analyzes past chat history to summarize emotional patterns and growth.
-  * **Text-to-Speech:** Integrated audio feature to read visualization scripts aloud.
+
   * **Emotional Safety:** The AI is prompted to prioritize emotional validation before guiding the user toward their goals.
 
 ### 🧰 Tech Stack
@@ -84,3 +84,4 @@ Manifest Me blends modern web security with advanced AI to create a safe space f
   * Community feature for sharing success stories
   * Dark Mode toggle
   * Gamified streaks for daily manifesting
+
