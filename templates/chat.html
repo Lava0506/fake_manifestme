@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manifest Me</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="top-nav">
+        <a href="{{ url_for('goals_page') }}">
+            <button class="nav-btn btn">Edit Goals ✏️</button>
+        </a>
+        <a href="{{ url_for('reflection_page') }}">
+        <button class="nav-btn btn">Reflect ✨</button>
+    </a>
+        <a href="{{ url_for('logout') }}">
+            <button class="nav-btn logout-btn">Log Out</button>
+        </a>
+    </div>
+
+  <div class="chat-container">
+    <div id="chat-box" class="chat-box">
+      <div class="bot-message">👋 Hi! I’m your Manifestation Guide. What’s on your mind today?</div>
+    </div>
+
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Type your message...">
+      <button id="send-btn" type="button">Send</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("send-btn").onclick = function() {
+      const input = document.getElementById("user-input");
+      const message = input.value.trim();
+      if (!message) return;
+
+      const chatBox = document.getElementById("chat-box");
+      const userDiv = document.createElement("div");
+      userDiv.className = "user-message";
+      userDiv.innerText = message;
+      chatBox.appendChild(userDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: message })
+      })
+      .then(res => res.json())
+      .then(data => {
+        const botDiv = document.createElement("div");
+        botDiv.className = "bot-message";
+        botDiv.innerText = data.reply;
+        chatBox.appendChild(botDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      });
+
+      input.value = "";
+    };
+
+    document.getElementById("user-input").addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        e.preventDefault(); 
+        document.getElementById("send-btn").click();
+      }
+    });
+  </script>
+</body>
+</html>

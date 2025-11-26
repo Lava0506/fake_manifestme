@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly Reflection - Manifest Me</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body class="goals-page-body">
+
+    <div class="goals-card" style="width: 800px; max-width: 90%;">
+        <h1>✨ Weekly Reflection ✨</h1>
+        <p>Your emotional patterns and growth insights.</p>
+
+        <div class="reflection-box">
+            {{ summary_text | safe }}
+        </div>
+
+        <div style="display: flex; gap: 10px; justify-content: center;">
+            <a href="{{ url_for('chat_page') }}">
+                <button class="goals-button" style="background: #d688a2; width: auto; padding: 10px 30px;">Back to Chat</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

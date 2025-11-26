@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>goals</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+ <h1 id="first">Hey there, ready to call in your dream life?</h1>
+  <section>
+   <div class="goals-box">
+    <h3>Let’s start by choosing a few things you truly desire.</h3> <h5>What are 2–3 things you’d love to manifest?</h5> <form>
+  <div>
+    <input type="text" id="goal1" placeholder="goal 1" required> </div>
+  <div>
+    <input type="text" id="goal2" placeholder="goal 2" required> </div>
+  <div>
+    <input type="text" id="goal3" placeholder="goal 3 (optional)"> </div>
+  <br>
+  <a href="{{ url_for('chat_page') }}"><button type="button">Save & Begin</button></a>
+</form>
+  </div>
+  </section>
+
+</body>
+</html>
+<script>
+    document.getElementById("save-goals-btn").addEventListener("click", function() {
+        
+        // 1. Get the text from the inputs
+        const goal1 = document.getElementById("goal1").value;
+        const goal2 = document.getElementById("goal2").value;
+        const goal3 = document.getElementById("goal3").value;
+
+        // 2. Clean up the list (remove empty goals)
+        const goalsArray = [goal1, goal2, goal3].filter(goal => goal.trim() !== "");
+
+        if (goalsArray.length === 0) {
+            alert("Please enter at least one goal.");
+            return;
+        }
+
+        // 3. Send the goals to Python/MongoDB
+        fetch("/save-goals", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ "goals": goalsArray })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // 4. If successful, go to the next page (Daily Session)
+                // We will create this page in a moment!
+                window.location.href = "{{ url_for('chat_page') }}";
+            } else {
+                alert("Something went wrong saving your goals.");
+            }
+        });
+    });
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE new-page>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Manifest Me</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+<body class="goals-page-body">
+
+    <div class="goals-card">
+        <h1>Create Your Account</h1>
+        <p>Start your journey by creating an account.</p>
+
+        <form method="POST" action="{{ url_for('signup_page') }}">
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="goals-button">Sign Up</button>
+        </form>
+        <br>
+        <p>Already have an account? <a href="{{ url_for('login_page') }}">Log In</a></p>
+    </div>
+
+</body>
+</html>

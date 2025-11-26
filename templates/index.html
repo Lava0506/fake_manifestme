@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifest Me - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">features</a></li>
+        </ul>
+        
+    <a href="{{ url_for('home') }}">  ManifestMe  </a>
+            <a href="{{ url_for('goals_page') }}"><button type="button">Get Started</button></a>
+        
+    </nav>
+</header>
+<body>
+    <div class="main">
+    <h1>manifest what you want to be</h1>
+    <p>Your journey to manifesting your dream life starts here.</p>
+    <a href="{{ url_for('goals_page') }}"><button type="button">Get Started</button></a>
+    </div>
+    
+</body>
+</html>

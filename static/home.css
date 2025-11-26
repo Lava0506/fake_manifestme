@@ -1,0 +1,104 @@
+body {
+  background-image: url('/static/prin.jpg');
+  background-size:98% ;           /* Increase image size */
+  background-repeat: no-repeat;
+  background-position: center 5px ;   /* Center image vertically and horizontally */
+  background-color: rgb(0, 0, 0);
+  margin: 0;                      /* Remove extra space */
+  font-family: 'Times New Roman', serif;
+  color: #f0f0f0;
+  text-align: center;
+}
+body::before { 
+  content: ""; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(223, 168, 168, 0.308); /* Adjust alpha for more/less translucency */
+  z-index: -1;                      /* Keep it behind your content */
+}
+.navbar {
+  background-color: #00000092;
+  
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0 0 16px 16px;
+  
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 32px;
+}
+
+.navbar li {
+  display: inline;
+  font-family: 'Times New Roman', serif;
+}
+
+.navbar a {
+  color: rgb(194, 194, 194);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: #ffe5e7;
+}
+
+.navbar .logo img {
+    height: 50px;      /* You can adjust this value to make the logo bigger or smaller */
+    width: auto;       /* This keeps the logo from stretching out of proportion */
+    vertical-align: middle; /* Helps align it with other items in the navbar */
+}
+
+
+button {
+  background: #2a1e24;
+  color: #e1e1e1;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-left: 16px;
+
+}
+
+.navbar button:hover {
+  background: #443031;
+  
+}
+
+h1 {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  font-size: 40px;
+  color: #e7e0e3;
+}
+
+p {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  
+}
+
+
+
+body > a button:hover {
+  background: #d94f4f;
+}
